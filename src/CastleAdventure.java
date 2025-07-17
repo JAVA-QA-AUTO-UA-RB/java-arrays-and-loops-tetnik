@@ -21,21 +21,31 @@ public class CastleAdventure {
             System.out.println("Замок відкрито! Заходьте всередину.");
         } else {
             System.out.println("Невірний код. Спробуйте ще.");
+            scanner.close();
+            return;
         }
 
         System.out.println("Потрапивши у замок, ти бачиш чарівну дошку з числами.Розв'яжи загадку");
-        System.out.println("На дошці написано числа: [3, 6, 9, 12, 15, 18, 21, 24, 27, 30]");
 
         int[] magicBoard = {3, 6, 9, 12, 15, 18, 21, 24, 27, 30};
-        int sum = 0;
-
+        System.out.print("На дошці написано числа: ");
         for (int number : magicBoard) {
-            sum += number;
+            System.out.print(number + " ");
+        }
+        System.out.println();
+
+        int actualSum = 0;
+        for (int number : magicBoard) {
+            actualSum += number;
         }
 
-        System.out.println("Сума всіх магічних чисел: " + sum);
+        System.out.println("Сума всіх магічних чисел: " );
+        int userSum = scanner.nextInt();
+        if (userSum == actualSum) {
         System.out.println("Вітаю!Кімната відкрилась!Ти можеш йти далі.");
-
+        } else {
+            System.out.println("Невірно.Спробуй ще.");
+        }
         System.out.println("Перед тобою з'явився Дракон!Захищайся,активувуй захист!");
 
         int[] dragonAttacks = {8, 16, 24, 32, 40};
